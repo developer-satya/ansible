@@ -1,0 +1,11 @@
+---
+- name: This playbook is for check connectivity and print msg for all nodes.
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Test connectivity
+      ping:
+
+    - name: Print msg
+      debug:
+        msg: Everything is okay

@@ -1,0 +1,32 @@
+---
+
+- name: Install and configure ansible on control node
+  hosts: all
+  become: true
+  tasks:
+    - name: Install prerequisites for RedHat family
+      package:
+        name:
+          - python3
+          - python3-pip
+          - python3-packaging
+        state: present
+
+    - name: Install ansible 
+      pip:
+        name: ansible
+        state: present
+        executable: pip3 
+
+    
+    - name: Create inventory file
+      copy:
+        src: /tmp/inventory
+        dest: /home/devops/ansible/
+        
+    
+    - name: Create configuration file
+      copy:
+        src: /tmp/ansible.cfg
+        dest: /home/devops/ansible/
+

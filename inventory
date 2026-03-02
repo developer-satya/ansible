@@ -1,0 +1,8 @@
+[defaults]
+node1
+node2
+node3
+
+[web_server]
+node1
+
