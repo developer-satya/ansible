@@ -1,0 +1,23 @@
+---
+
+- name: Create repo file on the managed nodes.
+  hosts: all
+  tasks:
+    - name: Create the baseos repo file
+      yum_repository:
+        name: baseos
+        description: Baseos Description
+        baseurl: http://content/rhel9.0/x86_64/dvd/BaseOS
+        gpgcheck: 1
+        gpgkey: http://content.example.com/rhel9.0/x86_64/dvd/RPM-GPG-KEY-redhat-release
+        enabled: 1
+
+    - name: Create the appstream repo file
+      yum_repository:
+        name: appstream
+        description: App Description
+        baseurl: http://content/rhel9.0/x86_64/dvd/AppStream
+        gpgcheck: 1
+        gpgkey: http://content.example.com/rhel9.0/x86_64/dvd/RPM-GPG-KEY-redhat-release
+        enabled: 1
+
