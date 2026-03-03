@@ -3,6 +3,7 @@
 - name: Install and configure ansible on control node
   hosts: all
   become: true
+  ignore_errors: yes
   tasks:
     - name: Install prerequisites for RedHat family
       package:
@@ -21,12 +22,12 @@
     
     - name: Create inventory file
       copy:
-        src: /tmp/inventory
+        src: ./resources/inventory
         dest: /home/devops/ansible/
         
     
     - name: Create configuration file
       copy:
-        src: /tmp/ansible.cfg
+        src: ./resources/ansible.cfg
         dest: /home/devops/ansible/
 
